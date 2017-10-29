@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MSOE Wrestling Real Time Stats</title>
+    <meta name="description" content="Real time stats for the Milwaukee School of Engineering">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://bootswatch.com/cyborg/bootstrap.min.css" />
+  	<link rel="shortcut icon" href="/images/msoe.ico" type="image/x-icon">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="msoeWrestlingApp">
+    <div id="header">
+  		<div class="container-fluid">
+  			<div role="navigation" class="navbar navbar-default">
+  				<div class="container-fluid">
+  					<div class="navbar-header">
+  						<button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle">
+  									<span class="sr-only">Toggle navigation</span>
+  									<span class="icon-bar"></span><span class="icon-bar"></span>
+  									<span class="icon-bar"></span>
+  								</button>
+  						<a href="/" class="navbar-brand">MSOE Wrestling RTS</a>
+  					</div>
+  					<div class="collapse navbar-collapse">
+  						<ul class="nav navbar-nav navbar-left">
+  								<li class="active">
+  									<a href="#/">Home</a>
+  								</li>
+  						</ul>
+  						<ul class="nav navbar-nav navbar-right">
+  							<li>
+  								<a id="styleDropdown" class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+  									Choose a Reading Style
+  								</a>
+  								<ul id="availableStyles" class="dropdown-menu">
+  									<li id="cyborg">
+  										Cyborg
+  									</li>
+  									<li id="journal">
+  										Journal (Default)
+  									</li>
+  									<li id="cosmo">
+  										Cosmo
+  									</li>
+  									<li id="paper">
+  										Paper
+  									</li>
+  									<li id="readable">
+  										Readable
+  									</li>
+  									<li id="darkly">
+  										Darkly
+  									</li>
+  									<li id="sandstone">
+  										Sandstone
+  									</li>
+  								</ul>
+  							</li>
+  						</ul>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+
+    <div class="container">
+    <div ng-view=""></div>
+    </div>
+
+    <div class="footer">
+      <div class="container-fluid">
+			<center>
+				<p>Copyright &copy;2017 Coding With Casa</p>
+			</center>
+      </div>
+    </div>
+
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106566950-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments)
+      };
+      gtag('js', new Date());
+
+      gtag('config', 'UA-106566950-1');
+    </script>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/about.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
