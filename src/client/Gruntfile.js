@@ -18,7 +18,8 @@ module.exports = function (grunt) {
     ngtemplates: 'grunt-angular-templates',
     cdnify: 'grunt-google-cdn'
   });
-
+  
+  grunt.loadNpmTasks('grunt-express-server');
   // Configurable paths for the application
   var appConfig = {
     app: require('./bower.json').appPath || 'app',
@@ -36,6 +37,13 @@ module.exports = function (grunt) {
       bower: {
         files: ['bower.json'],
         tasks: ['wiredep']
+      },
+      express: {
+        files: ['../server/**/*.js'],
+        tasks: ['express:prod'],
+        options: {
+          spawn: false // for grunt-contrib-watch v0.5.0+, "nospawn: true" for lower versions. Without this option specified express won't be reloaded
+        }
       },
       js: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
@@ -94,6 +102,29 @@ module.exports = function (grunt) {
         options: {
           open: true,
           base: '<%= yeoman.dist %>'
+        }
+      }
+    },
+    express: {
+      options: {
+        // Override defaults here
+      },
+      dev: {
+        options: {
+          script: '../server/server.js',
+          TestDB: true
+        }
+      },
+      prod: {
+        options: {
+          script: '../server/server.js',
+          node_env: 'production',
+          TestDB: false
+        }
+      },
+      test: {
+        options: {
+          //script: './app/server.js'
         }
       }
     },
@@ -415,6 +446,7 @@ module.exports = function (grunt) {
       'concurrent:server',
       'postcss:server',
       'connect:livereload',
+      'express:prod',
       'watch'
     ]);
   });
